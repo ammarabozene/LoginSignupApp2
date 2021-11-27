@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="BORDO">#A7414A</color>
+    <color name="Gray">#FF434241</color>
+    <color name="GRAYKHRIATI">#6A8A82</color>
+    <color name="white">#FFFFFF</color>
+    <color name="SHAL">#A37C27</color>
+    <color name="black">#FF000000</color>
+
+</resources>

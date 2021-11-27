@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Gray"
+    android:backgroundTint="#434241"
+    tools:context=".SignupActivity">
+
+    <EditText
+        android:id="@+id/etusernameSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="username..."
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+    <EditText
+        android:id="@+id/etPasswordSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <EditText
+        android:id="@+id/etconfirmPasswordSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="confirmpassword..."
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="266dp" />
+
+    <Button
+        android:id="@+id/btnsignupSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@empty"
+        android:backgroundTint="@color/BORDO"
+        android:onClick="signup"
+        android:text="Sign up"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="351dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

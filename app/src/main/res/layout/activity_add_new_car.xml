@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/IvPhotoAddNewCar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GRAYKHRIATI"
+    android:backgroundTint="#434241"
+    tools:context=".AddNewCar">
+
+    <Spinner
+        android:id="@+id/spinnerAddNewCar"
+        android:layout_width="402dp"
+        android:layout_height="72dp"
+        android:backgroundTint="@color/BORDO"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="287dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="193dp"
+        android:layout_height="156dp"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="376dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:text="Add"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="597dp" />
+
+    <EditText
+        android:id="@+id/etColorAddNewCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="color"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/etEngineAddNewCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="engine"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="85dp" />
+
+    <EditText
+        android:id="@+id/etSizeAddNewCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="size"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="148dp" />
+
+    <EditText
+        android:id="@+id/etReleaseyearAddNewCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="releaseyear"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="220dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
