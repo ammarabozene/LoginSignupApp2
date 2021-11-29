@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -19,8 +21,12 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,8 +35,11 @@ public class AddNewCar extends AppCompatActivity {
     private Spinner spAddNewCar;
     private ImageView IvPhoto;
     private FirebaseServices fbs;
+    StorageReference storageReference;
 
+    public AddNewCar(String color, String engine, String releaseyear, String size, Ccategory valueOf, String photo) {
 
+    }
 
 
     @Override
@@ -51,6 +60,7 @@ public class AddNewCar extends AppCompatActivity {
         spAddNewCar = findViewById(R.id.spinnerAddNewCar);
         fbs = FirebaseServices.getInstance();
         spAddNewCar.setAdapter(new ArrayAdapter<Ccategory>(this, android.R.layout.simple_selectable_list_item, Ccategory.values()));
+        storageReference = fbs.getStorage().getReference();
     }
 
     public void add(View view) {
@@ -70,9 +80,9 @@ public class AddNewCar extends AppCompatActivity {
             Toast.makeText(this,"error : fileds are empty", Toast.LENGTH_SHORT).show();
             return;
         }
-        AddNewCar rest = new AddNewCar(color, engine, releaseyear, size , Ccategory.valueOf(category));
-        fbs.getFire().collection("restaurants")
-                .add(rest)
+        AddNewCar car = new AddNewCar(color, engine, releaseyear, size , Ccategory.valueOf(category),photo);
+        fbs.getFire().collection("cars")
+                .add(car)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
@@ -101,7 +111,11 @@ public class AddNewCar extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
                     try {
+                        filePath = data.getData();
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+                        IvPhoto.setBackground(null);
+                        IvPhoto.setImageBitmap(bitmap);
+                        uploadImage();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -110,6 +124,79 @@ public class AddNewCar extends AppCompatActivity {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
             }
         }
+    }
 
+    private void uploadImage()
+    {
+        if (filePath != null) {
+
+            // Code for showing progressDialog while uploading
+            ProgressDialog progressDialog
+                    = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            // Defining the child of storageReference
+            StorageReference ref
+                    = storageReference
+                    .child(
+                            "images/"
+                                    + UUID.randomUUID().toString());
+
+            // adding listeners on upload
+            // or failure of image
+            ref.putFile(filePath)
+                    .addOnSuccessListener(
+                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+                                @Override
+                                public void onSuccess(
+                                        UploadTask.TaskSnapshot taskSnapshot)
+                                {
+
+                                    // Image uploaded successfully
+                                    // Dismiss dialog
+                                    progressDialog.dismiss();
+                                    Toast
+                                            .makeText(AddNewCar.this,
+                                                    "Image Uploaded!!",
+                                                    Toast.LENGTH_SHORT)
+                                            .show();
+                                }
+                            })
+
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e)
+                        {
+
+                            // Error, Image not uploaded
+                            progressDialog.dismiss();
+                            Toast
+                                    .makeText(AddNewCar.this,
+                                            "Failed " + e.getMessage(),
+                                            Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    })
+                    .addOnProgressListener(
+                            new OnProgressListener<UploadTask.TaskSnapshot>() {
+
+                                // Progress Listener for loading
+                                // percentage on the dialog box
+                                @Override
+                                public void onProgress(
+                                        UploadTask.TaskSnapshot taskSnapshot)
+                                {
+                                    double progress
+                                            = (100.0
+                                            * taskSnapshot.getBytesTransferred()
+                                            / taskSnapshot.getTotalByteCount());
+                                    progressDialog.setMessage(
+                                            "Uploaded "
+                                                    + (int)progress + "%");
+                                }
+                            });
+        }
     }
 }
