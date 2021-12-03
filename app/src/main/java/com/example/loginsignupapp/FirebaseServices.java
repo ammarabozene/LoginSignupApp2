@@ -39,7 +39,9 @@ public class FirebaseServices {
     }
 
 
-
+    public DocumentReference getFire() {
+        return null;
+    }
 }
 
 
