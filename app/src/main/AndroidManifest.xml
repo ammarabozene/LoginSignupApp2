@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginSignupApp">
-        <activity android:name=".AddNewCar"></activity>
+        <activity
+            android:name=".AllCarsActivity"
+            android:exported="false" />
+        <activity android:name=".AddNewCar" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

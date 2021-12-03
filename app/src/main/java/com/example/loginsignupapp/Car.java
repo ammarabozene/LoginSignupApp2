@@ -1,27 +1,22 @@
 package com.example.loginsignupapp;
 
-enum Ccategory{
+enum CarCategory{
     Dodge,Bmw,mercedes,audi,porsche,ferrari,lamborghini,toyota,mitsubishi,nissan
 }
 
-
-
-    public class Carscategory {
+    public class Car {
+        private int chasis;
         private int color;
         private int releaseyear;
         private int engine;
         private int size;
         private String photo;
 
-        public Carscategory(){
+        public Car(int chasis, int i, int parseInt, int anInt, int i1, CarCategory carCategory) {
         }
 
-
-
-
-        public void carscategory(int color, int releaseyear, int engine, int size, String photo) {
-
-
+        public Car(int chasis, int color, int releaseyear, int engine, int size, String photo) {
+            this.chasis = chasis;
             this.color = color;
             this.releaseyear = releaseyear;
             this.engine = engine;
@@ -29,15 +24,12 @@ enum Ccategory{
             this.photo = photo;
         }
 
-        @Override
-        public String toString() {
-            return "carscategory{" +
-                    "color=" + color +
-                    ", releaseyear=" + releaseyear +
-                    ", engine=" + engine +
-                    ", size=" + size +
-                    ", photo='" + photo + '\'' +
-                    '}';
+        public int getChasis() {
+            return chasis;
+        }
+
+        public void setChasis(int chasis) {
+            this.chasis = chasis;
         }
 
         public int getColor() {
@@ -79,6 +71,18 @@ enum Ccategory{
         public void setPhoto(String photo) {
             this.photo = photo;
         }
-    }
 
+        @Override
+        public String toString() {
+            return "Car{" +
+                    "chasis=" + chasis +
+                    ", color=" + color +
+                    ", releaseyear=" + releaseyear +
+                    ", engine=" + engine +
+                    ", size=" + size +
+                    ", photo='" + photo + '\'' +
+                    '}';
+        }
+
+    }
 

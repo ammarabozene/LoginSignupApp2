@@ -15,18 +15,19 @@
         android:layout_height="72dp"
         android:backgroundTint="@color/BORDO"
         tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="287dp" />
+        tools:layout_editor_absoluteY="320dp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="193dp"
         android:layout_height="156dp"
         tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="376dp"
+        tools:layout_editor_absoluteY="409dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/button2"
+        android:onClick="selectPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/BORDO"
@@ -43,7 +44,7 @@
         android:hint="color"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="72dp" />
 
     <EditText
         android:id="@+id/etEngineAddNewCar"
@@ -54,7 +55,7 @@
         android:hint="engine"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="85dp" />
+        tools:layout_editor_absoluteY="128dp" />
 
     <EditText
         android:id="@+id/etSizeAddNewCar"
@@ -65,7 +66,7 @@
         android:hint="size"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="148dp" />
+        tools:layout_editor_absoluteY="190dp" />
 
     <EditText
         android:id="@+id/etReleaseyearAddNewCar"
@@ -76,5 +77,16 @@
         android:hint="releaseyear"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="220dp" />
+        tools:layout_editor_absoluteY="252dp" />
+
+    <EditText
+        android:id="@+id/etChasisAddNewCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BORDO"
+        android:ems="10"
+        android:hint="chasis"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="13dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
