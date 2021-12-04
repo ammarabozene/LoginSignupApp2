@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "209262424751",
+    "project_id": "carsyaghali",
+    "storage_bucket": "carsyaghali.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209262424751:android:fc467df57badaa98edda5a",
+        "android_client_info": {
+          "package_name": "com.example.loginsignupapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209262424751-2qmec1il1pds95kcgjm5dq668lhnr4oj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2cd0PuXym5ZBtqkHwF0gG8Sv1J8xmmao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209262424751-2qmec1il1pds95kcgjm5dq668lhnr4oj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

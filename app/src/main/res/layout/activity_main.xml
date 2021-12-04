@@ -12,7 +12,9 @@
     <EditText
         android:id="@+id/etusernameMain"
         android:layout_width="195dp"
-        android:layout_height="54dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="@color/BORDO"
         android:drawableTint="#F3EFEF"
         android:ems="10"
@@ -20,13 +22,16 @@
         android:hint="username..."
         android:inputType="textEmailAddress"
         android:shadowColor="#F4F3F3"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etPasswordMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etPasswordMain"
         android:layout_width="197dp"
-        android:layout_height="46dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="@color/BORDO"
         android:drawableTint="#F6F3F3"
         android:ems="10"
@@ -34,26 +39,34 @@
         android:hint="password..."
         android:inputType="textPassword"
         android:shadowColor="#E3DDDD"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="246dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etusernameMain" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="208dp"
-        android:layout_height="72dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
         android:backgroundTint="@color/BORDO"
         android:onClick="login"
         android:text="Log in"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnsignupMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordMain" />
 
     <Button
         android:id="@+id/btnsignupMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="256dp"
         android:background="@empty"
         android:backgroundTint="@color/BORDO"
         android:text="sign up"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="427dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
