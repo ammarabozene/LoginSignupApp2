@@ -25,10 +25,11 @@ import java.io.IOException;
 import static android.content.ContentValues.TAG;
 
 public class AddNewCar extends AppCompatActivity {
-    private EditText etColor, etEngine, etSize, etReleaseyear;
+    private EditText etchasis, etColor, etEngine, etSize, etReleaseyear;
     private Spinner spAddNewCar;
     private ImageView IvPhoto;
     private FirebaseServices fbs;
+
 
 
 
@@ -43,6 +44,7 @@ public class AddNewCar extends AppCompatActivity {
 
 
     private void connectComonent() {
+        etchasis = findViewById(R.id.etChasisAddNewCar);
         etColor = findViewById(R.id.etColorAddNewCar);
         etEngine = findViewById(R.id.etEngineAddNewCar);
         etReleaseyear = findViewById(R.id.etReleaseyearAddNewCar);
@@ -50,12 +52,13 @@ public class AddNewCar extends AppCompatActivity {
         IvPhoto = findViewById(R.id.IvPhotoAddNewCar);
         spAddNewCar = findViewById(R.id.spinnerAddNewCar);
         fbs = FirebaseServices.getInstance();
-        spAddNewCar.setAdapter(new ArrayAdapter<Ccategory>(this, android.R.layout.simple_selectable_list_item, Ccategory.values()));
+        spAddNewCar.setAdapter(new ArrayAdapter<CarCategory>(this, android.R.layout.simple_selectable_list_item, CarCategory.values()));
     }
 
     public void add(View view) {
         // check if any field is empty
-        String color, engine, releaseyear, size, category, photo;
+        String chasis ,color, engine, releaseyear, size, category, photo;
+        chasis = etchasis.getText().toString();
         color = etColor.getText().toString();
         engine = etEngine.getText().toString();
         releaseyear = etReleaseyear.getText().toString();
@@ -65,14 +68,14 @@ public class AddNewCar extends AppCompatActivity {
             photo = "no_image";
         else photo = IvPhoto.getDrawable().toString();
 
-        if (color.trim().isEmpty() || engine.trim().isEmpty() || releaseyear.trim().isEmpty() ||
+        if (chasis.trim().isEmpty()||color.trim().isEmpty() || engine.trim().isEmpty() || releaseyear.trim().isEmpty() ||
                 size.trim().isEmpty() || category.trim().isEmpty() || photo.trim().isEmpty()) {
             Toast.makeText(this,"error : fileds are empty", Toast.LENGTH_SHORT).show();
             return;
         }
-        AddNewCar rest = new AddNewCar(color, engine, releaseyear, size , Ccategory.valueOf(category));
-        fbs.getFire().collection("restaurants")
-                .add(rest)
+        Car car = new Car(Integer.parseInt(chasis),Integer.parseInt(color), Integer.parseInt(releaseyear),Integer.parseInt(engine),Integer.parseInt(size) ,Integer.parseInt(photo), CarCategory.valueOf(category));
+        fbs.getFire().collection("cars")
+                .add(car)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
     public class AllCarsActivity extends AppCompatActivity {
 
-        private RecyclerView rvAllRest;
+        private RecyclerView rvAllCar;
         AdapterCar adapter;
         FirebaseServices fbs;
         ArrayList<Car> cars;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
             readData();
 
             // set up the RecyclerView
-            RecyclerView recyclerView = findViewById(R.id.rvRestsAllCar);
+            RecyclerView recyclerView = findViewById(R.id.rvAllCar);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             adapter = new AdapterCar(this,cars);
             recyclerView.setAdapter(adapter);
