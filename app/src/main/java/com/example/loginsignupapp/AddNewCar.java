@@ -24,6 +24,7 @@ import java.io.IOException;
 
 import static android.content.ContentValues.TAG;
 
+
 public class AddNewCar extends AppCompatActivity {
     private EditText etchasis, etColor, etEngine, etSize, etReleaseyear;
     private Spinner spAddNewCar;

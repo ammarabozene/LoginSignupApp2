@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginSignupApp">
         <activity
+            android:name=".CarDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AllCarsActivity"
             android:exported="false" />
         <activity android:name=".AddNewCar" />
