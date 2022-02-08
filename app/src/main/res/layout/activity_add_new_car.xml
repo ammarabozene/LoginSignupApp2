@@ -13,80 +13,127 @@
         android:id="@+id/spinnerAddNewCar"
         android:layout_width="402dp"
         android:layout_height="72dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/BORDO"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="320dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etReleaseyearAddNewCar" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="193dp"
         android:layout_height="156dp"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="409dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerAddNewCar"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/button2"
-        android:onClick="selectPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="@color/BORDO"
+        android:onClick="selectPhoto"
         android:text="Add"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="597dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/etColorAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="11dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="color"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="72dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etEngineAddNewCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087" />
 
     <EditText
         android:id="@+id/etEngineAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="engine"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etSizeAddNewCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/etSizeAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="size"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="190dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etReleaseyearAddNewCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEngineAddNewCar" />
 
     <EditText
         android:id="@+id/etReleaseyearAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="1dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="releaseyear"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="252dp" />
+        app:layout_constraintBottom_toTopOf="@+id/spinnerAddNewCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSizeAddNewCar" />
 
     <EditText
         android:id="@+id/etChasisAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="chasis"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="13dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etEngineAddNewCar"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
