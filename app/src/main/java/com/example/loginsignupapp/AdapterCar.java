@@ -1,6 +1,7 @@
 package com.example.loginsignupapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +10,39 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class AdapterCar extends RecyclerView.Adapter<AdapterCar.ViewHolder> {
 
     private List<Car> mData;
     private LayoutInflater mInflater;
-    private AdapterCar.ItemClickListener mClickListener;
+    private Context context;
+
+
+    private final AdapterCar.ItemClickListener mClickListener = new ItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            // get restaurant data
+            Car car = mData.get(position);
+            // upload restaurant data
+            // goto details activity
+            Intent i = new Intent(context, CarDetailsActivity.class);
+            i.putExtra("car", (Serializable)car);
+            context.startActivity(i);
+        }
+    };
+
 
     // data is passed into the constructor
     AdapterCar(Context context, List<Car> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.context = context;
+
     }
+
+
 
     // inflates the row layout from xml when needed
     @Override
@@ -60,6 +81,11 @@ public class AdapterCar extends RecyclerView.Adapter<AdapterCar.ViewHolder> {
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+
+            //Open new page: Intent i = new Intent(, SignupActivity.class);
+
+
+
         }
     }
 
@@ -69,9 +95,10 @@ public class AdapterCar extends RecyclerView.Adapter<AdapterCar.ViewHolder> {
     }
 
     // allows clicks events to be caught
-    void setClickListener(AdapterCar.ItemClickListener itemClickListener) {
+    /*
+    void setClickListener(AdapterRestaurant.ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
-    }
+    }*/
 
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {

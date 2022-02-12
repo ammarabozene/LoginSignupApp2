@@ -12,8 +12,8 @@
         android:layout_width="115dp"
         android:layout_height="333dp"
         android:layout_weight="1"
-        android:background="@color/Gray"
-        android:backgroundTint="@color/Gray"
+        android:background="@color/BORDO"
+        android:backgroundTint="@color/BORDO"
         android:text="TextView" />
 
     <ImageView

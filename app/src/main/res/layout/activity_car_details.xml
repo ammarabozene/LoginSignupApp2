@@ -4,71 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Gray"
     tools:context=".CarDetailsActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivPhotoCarDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameCarDetails"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvNameCarDetails"
         android:layout_width="282dp"
         android:layout_height="42dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="31dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        android:background="@color/BORDO"
+        android:text="Car name"
+        app:layout_constraintBottom_toTopOf="@+id/ivPhotoCarDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="191dp"
-        android:layout_height="151dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="101dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="202dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="101dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/tvHistoryCarDetails"
+        android:layout_width="391dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/BORDO"
+        android:text="Car history"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
-        app:layout_constraintVertical_bias="0.483"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoCarDetails" />
 
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="394dp"
-        android:layout_height="161dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="7dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+    <Button
+        android:id="@+id/btnWhatsappCarDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="140dp"
+        android:backgroundTint="#075E54"
+        android:text="WHATSAPP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionCarDetails" />
+
+    <TextView
+        android:id="@+id/tvDescriptionCarDetails"
+        android:layout_width="388dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/BORDO"
+        android:text="Description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHistoryCarDetails" />
 </androidx.constraintlayout.widget.ConstraintLayout>
