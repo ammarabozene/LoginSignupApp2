@@ -55,7 +55,7 @@ public class AdapterCar extends RecyclerView.Adapter<AdapterCar.ViewHolder> {
     @Override
     public void onBindViewHolder(AdapterCar.ViewHolder holder, int position) {
        Car car = mData.get(position);
-        holder.tvName.setText(car.getChasis());
+        holder.tvName.setText(car.getName());
         //holder.ivPhoto.setImageDrawable(rest.getPhoto());
     }
 

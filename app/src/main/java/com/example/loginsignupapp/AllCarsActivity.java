@@ -14,15 +14,16 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-
-    public class AllCarsActivity extends AppCompatActivity {
+public class AllCarsActivity extends AppCompatActivity {
 
         private RecyclerView rvAllCar;
         AdapterCar adapter;
         FirebaseServices fbs;
         ArrayList<Car> cars;
+        MyCallback myCallback;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,16 @@ import java.util.ArrayList;
             fbs = FirebaseServices.getInstance();
            cars = new ArrayList<Car>();
             readData();
+            myCallback = new MyCallback() {
+                @Override
+                public void onCallback(List<Car> restsList) {
+                    RecyclerView recyclerView = findViewById(R.id.rvAllCar);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    adapter = new AdapterCar(getApplicationContext(), cars);
+                    recyclerView.setAdapter(adapter);
+                }
+            };
+
 
             // set up the RecyclerView
             RecyclerView recyclerView = findViewById(R.id.rvAllCar);
@@ -50,6 +61,7 @@ import java.util.ArrayList;
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     cars.add(document.toObject(Car.class));
                                 }
+                                myCallback.onCallback(cars);
                             } else {
                                 Log.e("AllCarsActivity: readData()", "Error getting documents.", task.getException());
                             }

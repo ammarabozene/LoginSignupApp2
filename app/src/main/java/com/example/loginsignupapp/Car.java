@@ -1,68 +1,54 @@
 package com.example.loginsignupapp;
 
+import java.io.Serializable;
+
 enum CarCategory{
     Dodge,Bmw,mercedes,audi,porsche,ferrari,lamborghini,toyota,mitsubishi,nissan
 }
 
-    public class Car {
-        private int chasis;
-        private int color;
-        private int releaseyear;
-        private int engine;
-        private int size;
+    public class Car implements Serializable {
+        private int history;
+        private int Description;
+        private int name;
+
         private String photo;
 
         public Car(int parseInt1, int chasis, int i, int parseInt, int anInt, int i1, CarCategory carCategory) {
         }
 
-        public Car(int chasis, int color, int releaseyear, int engine, int size, String photo) {
-            this.chasis = chasis;
-            this.color = color;
-            this.releaseyear = releaseyear;
-            this.engine = engine;
-            this.size = size;
+        public int getHistory() {
+            return history;
+        }
+
+        public void setHistory(int history) {
+            this.history = history;
+        }
+
+        public int getDescription() {
+            return Description;
+        }
+
+        public void setDescription(int description) {
+            Description = description;
+        }
+
+        public int getName() {
+            return name;
+        }
+
+        public void setName(int name) {
+            this.name = name;
+        }
+
+        public Car(int history , int Description, int name, int chasis, int color, int releaseyear, int engine, int size, String photo) {
+            this.history = history;
+            this.Description = Description;
+            this.name = name;
+
             this.photo = photo;
         }
 
-        public int getChasis() {
-            return chasis;
-        }
 
-        public void setChasis(int chasis) {
-            this.chasis = chasis;
-        }
-
-        public int getColor() {
-            return color;
-        }
-
-        public void setColor(int color) {
-            this.color = color;
-        }
-
-        public int getReleaseyear() {
-            return releaseyear;
-        }
-
-        public void setReleaseyear(int releaseyear) {
-            this.releaseyear = releaseyear;
-        }
-
-        public int getEngine() {
-            return engine;
-        }
-
-        public void setEngine(int engine) {
-            this.engine = engine;
-        }
-
-        public int getSize() {
-            return size;
-        }
-
-        public void setSize(int size) {
-            this.size = size;
-        }
 
         public String getPhoto() {
             return photo;
@@ -75,11 +61,10 @@ enum CarCategory{
         @Override
         public String toString() {
             return "Car{" +
-                    "chasis=" + chasis +
-                    ", color=" + color +
-                    ", releaseyear=" + releaseyear +
-                    ", engine=" + engine +
-                    ", size=" + size +
+                    "history=" + history +
+                    ", Description=" + Description +
+                    ", name=" + name +
+
                     ", photo='" + photo + '\'' +
                     '}';
         }

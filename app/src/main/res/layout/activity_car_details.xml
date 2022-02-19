@@ -7,6 +7,19 @@
     android:background="@color/Gray"
     tools:context=".CarDetailsActivity">
 
+    <Button
+        android:id="@+id/btnWhatsappCarDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="140dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="73dp"
+        android:backgroundTint="#075E54"
+        android:text="WHATSAPP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionCarDetails" />
+
     <ImageView
         android:id="@+id/ivPhotoCarDetails"
         android:layout_width="wrap_content"
@@ -18,11 +31,22 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
+        android:id="@+id/tvHistoryCarDetails"
+        android:layout_width="391dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="43dp"
+        android:background="@color/BORDO"
+        android:text="Car history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoCarDetails" />
+
+    <TextView
         android:id="@+id/tvNameCarDetails"
         android:layout_width="282dp"
         android:layout_height="42dp"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="31dp"
+        android:layout_marginTop="16dp"
         android:background="@color/BORDO"
         android:text="Car name"
         app:layout_constraintBottom_toTopOf="@+id/ivPhotoCarDetails"
@@ -32,35 +56,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvHistoryCarDetails"
-        android:layout_width="391dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/BORDO"
-        android:text="Car history"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPhotoCarDetails" />
-
-    <Button
-        android:id="@+id/btnWhatsappCarDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="140dp"
-        android:backgroundTint="#075E54"
-        android:text="WHATSAPP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionCarDetails" />
-
-    <TextView
         android:id="@+id/tvDescriptionCarDetails"
         android:layout_width="388dp"
         android:layout_height="121dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="12dp"
+        android:layout_marginTop="60dp"
         android:background="@color/BORDO"
         android:text="Description"
         app:layout_constraintEnd_toEndOf="parent"

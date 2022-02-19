@@ -3,6 +3,7 @@ package com.example.loginsignupapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -62,4 +63,8 @@ public class MainActivity<auth> extends AppCompatActivity {
                 });
     }
 
+    public void Signup(View view) {
+        Intent i = new Intent(this, SignupActivity.class);
+        startActivity(i);
+    }
 }
