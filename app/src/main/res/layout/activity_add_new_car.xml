@@ -9,131 +9,67 @@
     android:backgroundTint="#434241"
     tools:context=".AddNewCar">
 
-    <Spinner
-        android:id="@+id/spinnerAddNewCar"
-        android:layout_width="402dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/BORDO"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etReleaseyearAddNewCar" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="193dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerAddNewCar"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="164dp"
         android:layout_marginStart="159dp"
         android:layout_marginTop="23dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="70dp"
         android:backgroundTint="@color/BORDO"
         android:onClick="selectPhoto"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/etColorAddNewCar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="11dp"
-        android:backgroundTint="@color/BORDO"
-        android:ems="10"
-        android:hint="color"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEngineAddNewCar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087" />
-
-    <EditText
-        android:id="@+id/etEngineAddNewCar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/BORDO"
-        android:ems="10"
-        android:hint="engine"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etSizeAddNewCar"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/IvPhotoAddNewCar"
+        app:layout_constraintVertical_bias="0.764" />
+
+    <ImageView
+        android:id="@+id/IvPhotoAddNewCar"
+        android:layout_width="193dp"
+        android:layout_height="156dp"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="239dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Spinner
+        android:id="@+id/spinnerAddNewCar"
+        android:layout_width="402dp"
+        android:layout_height="72dp"
+        android:backgroundTint="@color/BORDO"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="428dp" />
 
     <EditText
-        android:id="@+id/etSizeAddNewCar"
+        android:id="@+id/etNameAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/BORDO"
         android:ems="10"
-        android:hint="size"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etReleaseyearAddNewCar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEngineAddNewCar" />
+        android:text="Name"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
-        android:id="@+id/etReleaseyearAddNewCar"
+        android:id="@+id/etHistoryAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="@color/BORDO"
         android:ems="10"
-        android:hint="releaseyear"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerAddNewCar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSizeAddNewCar" />
+        android:text="Name"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="89dp" />
 
     <EditText
-        android:id="@+id/etChasisAddNewCar"
+        android:id="@+id/etDescriptionAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/BORDO"
         android:ems="10"
-        android:hint="chasis"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etEngineAddNewCar"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Name"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="159dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

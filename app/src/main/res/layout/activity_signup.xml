@@ -8,48 +8,54 @@
     android:backgroundTint="#434241"
     tools:context=".SignupActivity">
 
-    <EditText
-        android:id="@+id/etusernameSignup"
+    <Button
+        android:id="@+id/btnsignupSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@empty"
         android:backgroundTint="@color/BORDO"
-        android:ems="10"
-        android:hint="username..."
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="100dp" />
+        android:onClick="signup"
+        android:text="Sign up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etconfirmPasswordSignup" />
 
     <EditText
         android:id="@+id/etPasswordSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="181dp" />
+        app:layout_constraintStart_toStartOf="@+id/etusernameSignup"
+        app:layout_constraintTop_toBottomOf="@+id/etusernameSignup" />
 
     <EditText
         android:id="@+id/etconfirmPasswordSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="confirmpassword..."
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="266dp" />
+        app:layout_constraintStart_toStartOf="@+id/etPasswordSignup"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordSignup" />
 
-    <Button
-        android:id="@+id/btnsignupSignup"
+    <EditText
+        android:id="@+id/etusernameSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@empty"
+        android:layout_marginTop="100dp"
         android:backgroundTint="@color/BORDO"
-        android:onClick="signup"
-        android:text="Sign up"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="351dp" />
+        android:ems="10"
+        android:hint="username..."
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

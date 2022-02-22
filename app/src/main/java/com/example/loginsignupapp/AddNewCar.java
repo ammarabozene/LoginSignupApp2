@@ -26,7 +26,7 @@ import static android.content.ContentValues.TAG;
 
 
 public class AddNewCar extends AppCompatActivity {
-    private EditText etchasis, etColor, etEngine, etSize, etReleaseyear;
+    private EditText etname, ethistory, etdescription;
     private Spinner spAddNewCar;
     private ImageView IvPhoto;
     private FirebaseServices fbs;
@@ -40,16 +40,14 @@ public class AddNewCar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_car);
 
-        connectComonent();
+        connectComponents();
     }
 
 
-    private void connectComonent() {
-        etchasis = findViewById(R.id.etChasisAddNewCar);
-        etColor = findViewById(R.id.etColorAddNewCar);
-        etEngine = findViewById(R.id.etEngineAddNewCar);
-        etReleaseyear = findViewById(R.id.etReleaseyearAddNewCar);
-        etSize = findViewById(R.id.etSizeAddNewCar);
+    private void connectComponents() {
+        etname = findViewById(R.id.etNameAddNewCar);
+        ethistory = findViewById(R.id.etHistoryAddNewCar);
+        etdescription = findViewById(R.id.etDescriptionAddNewCar);
         IvPhoto = findViewById(R.id.IvPhotoAddNewCar);
         spAddNewCar = findViewById(R.id.spinnerAddNewCar);
         fbs = FirebaseServices.getInstance();
@@ -58,23 +56,20 @@ public class AddNewCar extends AppCompatActivity {
 
     public void add(View view) {
         // check if any field is empty
-        String chasis ,color, engine, releaseyear, size, category, photo;
-        chasis = etchasis.getText().toString();
-        color = etColor.getText().toString();
-        engine = etEngine.getText().toString();
-        releaseyear = etReleaseyear.getText().toString();
-        size = etSize.getText().toString();
+        String name,history,description, category, photo;
+        name = etname.getText().toString();
+        history = ethistory.getText().toString();
+        description = etdescription.getText().toString();
         category = spAddNewCar.getSelectedItem().toString();
         if (IvPhoto.getDrawable() == null)
             photo = "no_image";
         else photo = IvPhoto.getDrawable().toString();
 
-        if (chasis.trim().isEmpty()||color.trim().isEmpty() || engine.trim().isEmpty() || releaseyear.trim().isEmpty() ||
-                size.trim().isEmpty() || category.trim().isEmpty() || photo.trim().isEmpty()) {
+        if (name.trim().isEmpty()||history.trim().isEmpty() || description.trim().isEmpty() || category.trim().isEmpty() || photo.trim().isEmpty()) {
             Toast.makeText(this,"error : fileds are empty", Toast.LENGTH_SHORT).show();
             return;
         }
-        Car car = new Car(Integer.parseInt(chasis),Integer.parseInt(color), Integer.parseInt(releaseyear),Integer.parseInt(engine),Integer.parseInt(size) ,Integer.parseInt(photo), CarCategory.valueOf(category));
+        Car car = new Car(Integer.parseInt(history), Integer.parseInt(description), Integer.parseInt(name),Integer.parseInt(photo), CarCategory.valueOf(category));
         fbs.getFire().collection("cars")
                 .add(car)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

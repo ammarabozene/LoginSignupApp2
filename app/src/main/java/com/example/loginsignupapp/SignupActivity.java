@@ -3,6 +3,7 @@ package com.example.loginsignupapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -40,8 +41,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignupActivity extends AppCompatActivity {
     private EditText etUsername, etPassword, etConfirmPassword;
-    private FirebaseAuth auth;
-
+    private FirebaseServices fbs;
     private String email;
     private String password;
 
@@ -54,6 +54,7 @@ public class SignupActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etusernameSignup);
         etPassword = findViewById(R.id.etPasswordSignup);
         etConfirmPassword = findViewById(R.id.etconfirmPasswordSignup);
+        fbs = FirebaseServices.getInstance();
     }
 
     public void signup(View view) {
@@ -77,12 +78,14 @@ public class SignupActivity extends AppCompatActivity {
 
 
         // TODO: 3- Check username and password with Firebase Authentication
-        auth.signInWithEmailAndPassword(username, password)
+        fbs.getAuth().createUserWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // TODO: commands if successful
+                            Intent i = new Intent(SignupActivity.this, AllCarsActivity.class);
+                            startActivity(i);
                         } else {
 
 

@@ -10,10 +10,9 @@ enum CarCategory{
         private int history;
         private int Description;
         private int name;
-
         private String photo;
 
-        public Car(int parseInt1, int chasis, int i, int parseInt, int anInt, int i1, CarCategory carCategory) {
+        public Car(int parseInt1, int chasis, int i, int parseInt, CarCategory carCategory) {
         }
 
         public int getHistory() {

@@ -46,6 +46,13 @@ public class MainActivity<auth> extends AppCompatActivity {
             return;
         }
 
+        if (username.equals("admin") && password.equals("admin"))
+        {
+            Intent i = new Intent(MainActivity.this, AddNewCar.class);
+            startActivity(i);
+            return;
+        }
+
         //TODO: 3-  Check username and password with Firebase Authentication
         auth.signInWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -53,6 +60,8 @@ public class MainActivity<auth> extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // TODO: commands if successful
+                            Intent i = new Intent(MainActivity.this, AllCarsActivity.class);
+                            startActivity(i);
                         } else {
 
 
