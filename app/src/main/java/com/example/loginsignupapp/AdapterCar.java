@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.Serializable;
 import java.util.List;
 
+
 public class AdapterCar extends RecyclerView.Adapter<AdapterCar.ViewHolder> {
 
     private List<Car> mData;

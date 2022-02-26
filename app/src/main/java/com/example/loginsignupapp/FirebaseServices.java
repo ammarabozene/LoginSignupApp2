@@ -5,7 +5,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
-public class FirebaseServices {
+public class
+FirebaseServices {
     private static FirebaseServices instance;
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
