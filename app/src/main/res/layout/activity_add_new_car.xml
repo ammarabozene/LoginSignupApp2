@@ -2,74 +2,90 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/IvPhotoAddNewCar"
+    android:id="@+id/clPhotoAddNewCar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GRAYKHRIATI"
     android:backgroundTint="#434241"
     tools:context=".AddNewCar">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="23dp"
-        android:backgroundTint="@color/BORDO"
-        android:onClick="selectPhoto"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IvPhotoAddNewCar"
-        app:layout_constraintVertical_bias="0.764" />
-
-    <ImageView
-        android:id="@+id/IvPhotoAddNewCar"
-        android:layout_width="193dp"
-        android:layout_height="156dp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="239dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Spinner
-        android:id="@+id/spinnerAddNewCar"
-        android:layout_width="402dp"
-        android:layout_height="72dp"
-        android:backgroundTint="@color/BORDO"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="428dp" />
-
     <EditText
         android:id="@+id/etNameAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="name"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/etHistoryAddNewCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etHistoryAddNewCar"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="89dp" />
+        android:layout_marginBottom="126dp"
+        android:backgroundTint="@color/BORDO"
+        android:onClick="add"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerAddNewCar" />
+
+    <Spinner
+        android:id="@+id/spinnerAddNewCar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:backgroundTint="@color/BORDO"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoAddNewCar" />
 
     <EditText
         android:id="@+id/etDescriptionAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
         android:ems="10"
+        android:hint="description"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="159dp" />
+        app:layout_constraintBottom_toTopOf="@+id/ivPhotoAddNewCar"
+        app:layout_constraintStart_toStartOf="@+id/etHistoryAddNewCar"
+        app:layout_constraintTop_toBottomOf="@+id/etHistoryAddNewCar" />
+
+    <ImageView
+        android:id="@+id/ivPhotoAddNewCar"
+        android:onClick="selectPhoto"
+        android:layout_width="193dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerAddNewCar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescriptionAddNewCar"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/etHistoryAddNewCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:ems="10"
+        android:hint="history"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/etDescriptionAddNewCar"
+        app:layout_constraintStart_toStartOf="@+id/etNameAddNewCar"
+        app:layout_constraintTop_toBottomOf="@+id/etNameAddNewCar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
