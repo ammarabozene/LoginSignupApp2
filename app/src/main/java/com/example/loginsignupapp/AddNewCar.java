@@ -118,6 +118,7 @@ public class AddNewCar extends AppCompatActivity {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
             }
         }
+
     }
 
     private void uploadImage()
