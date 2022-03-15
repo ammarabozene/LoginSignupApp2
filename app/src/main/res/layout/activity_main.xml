@@ -75,17 +75,31 @@
         android:id="@+id/btnAddCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="51dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginStart="165dp"
-        android:layout_marginTop="157dp"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="156dp"
         android:backgroundTint="@color/BORDO"
         android:onClick="gotoAddNewCar"
         android:text="AddNewCar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintStart_toEndOf="@+id/AllCars"
+        app:layout_constraintTop_toBottomOf="@+id/btnsignupMain" />
+
+    <Button
+        android:id="@+id/AllCars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="53dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="210dp"
+        android:backgroundTint="@color/BORDO"
+        android:text="ALLCARS"
+        android:onClick="gotoAllCars"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddCar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnsignupMain"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

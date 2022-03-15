@@ -82,4 +82,9 @@ public class MainActivity<auth> extends AppCompatActivity {
         Intent i = new Intent(this, AddNewCar.class);
         startActivity(i);
     }
+
+    public void gotoAllCars(View view) {
+        Intent i = new Intent(this, AllCarsActivity.class);
+        startActivity(i);
+    }
 }

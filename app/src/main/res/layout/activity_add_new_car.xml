@@ -30,7 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="126dp"
         android:backgroundTint="@color/BORDO"
-        android:onClick="add"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
