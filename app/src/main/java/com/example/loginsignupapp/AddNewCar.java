@@ -146,7 +146,10 @@ public class AddNewCar extends AppCompatActivity {
                         = storageReference
                         .child(
                                 "images/"
-                                        + UUID.randomUUID().toString());
+                                        + filePath.getLastPathSegment());
+                                       //
+                // .3
+                // + UUID.randomUUID().toString());
 
                 ref.putFile(filePath)
                         .addOnSuccessListener(
