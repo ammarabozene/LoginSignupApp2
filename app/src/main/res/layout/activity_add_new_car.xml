@@ -31,6 +31,7 @@
         android:layout_marginBottom="126dp"
         android:backgroundTint="@color/BORDO"
         android:text="Add"
+        android:onClick="gotoAllCars"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"

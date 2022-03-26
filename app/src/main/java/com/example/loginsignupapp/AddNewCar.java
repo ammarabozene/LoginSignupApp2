@@ -218,4 +218,9 @@ public class AddNewCar extends AppCompatActivity {
 
         }
     }
+
+    public void gotoAllCars(View view) {
+        Intent i = new Intent(this, AllCarsActivity.class);
+        startActivity(i);
+    }
 }
