@@ -4,6 +4,14 @@ import android.app.AppComponentFactory;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+enum ErrorCodes
+{
+        IncorrectAuth, FieldsEmpty, True, False
+}
+enum CarCategory
+{
+        Dodge,Bmw,mercedes,audi,porsche,ferrari,lamborghini,toyota,mitsubishi,nissan
+}
 
 class Utilities {
 

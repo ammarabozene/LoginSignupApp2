@@ -2,9 +2,6 @@ package com.example.loginsignupapp;
 
 import java.io.Serializable;
 
-enum CarCategory{
-    Dodge,Bmw,mercedes,audi,porsche,ferrari,lamborghini,toyota,mitsubishi,nissan
-}
 
     public class Car implements Serializable {
         private int history;
