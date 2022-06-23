@@ -13,78 +13,74 @@
         android:id="@+id/etNameAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="47dp"
         android:ems="10"
         android:hint="name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etHistoryAddNewCar"
+        app:layout_constraintBottom_toTopOf="@+id/etDescriptionAddNewCar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnAddCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="126dp"
+        android:layout_marginBottom="323dp"
         android:backgroundTint="@color/BORDO"
         android:onClick="gotoAllCars"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerAddNewCar" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoAddNewCar" />
 
     <Spinner
         android:id="@+id/spinnerAddNewCar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="56dp"
-        android:layout_marginEnd="4dp"
         android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="26dp"
         android:backgroundTint="@color/BORDO"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/ivPhotoAddNewCar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPhotoAddNewCar" />
+        app:layout_constraintTop_toBottomOf="@+id/etDescriptionAddNewCar" />
 
     <EditText
         android:id="@+id/etDescriptionAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="description"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/ivPhotoAddNewCar"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerAddNewCar"
         app:layout_constraintStart_toStartOf="@+id/etHistoryAddNewCar"
-        app:layout_constraintTop_toBottomOf="@+id/etHistoryAddNewCar" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameAddNewCar" />
 
     <ImageView
         android:id="@+id/ivPhotoAddNewCar"
-        android:onClick="selectPhoto"
         android:layout_width="193dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerAddNewCar"
+        android:layout_marginBottom="19dp"
+        android:onClick="selectPhoto"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddCar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescriptionAddNewCar"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerAddNewCar"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
         android:id="@+id/etHistoryAddNewCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="3dp"
         android:ems="10"
         android:hint="history"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/etDescriptionAddNewCar"
         app:layout_constraintStart_toStartOf="@+id/etNameAddNewCar"
         app:layout_constraintTop_toBottomOf="@+id/etNameAddNewCar" />
 
