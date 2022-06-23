@@ -1,12 +1,18 @@
 package com.example.loginsignupapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AllCarsActivity extends AppCompatActivity {
+public class AllCarActivity extends AppCompatActivity {
 
         private RecyclerView rvAllCar;
         AdapterCar adapter;
@@ -41,16 +47,49 @@ public class AllCarsActivity extends AppCompatActivity {
                     adapter = new AdapterCar(getApplicationContext(), cars);
                     recyclerView.setAdapter(adapter);
                 }
+
             };
+            ActionBar actionBar = getSupportActionBar();
 
+            actionBar.setTitle("CARFORMATION");
+            actionBar.setDisplayUseLogoEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
 
-            // set up the RecyclerView
-            RecyclerView recyclerView = findViewById(R.id.rvAllCar);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            adapter = new AdapterCar(this,cars);
-            recyclerView.setAdapter(adapter);
         }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            //case R.id.miSearch:
+            // User chose the "Settings" item, show the app settings UI...
+            //return true;
+
+            case R.id.miProfile:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            case R.id.miSettings:
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+
+        }
+
+
+    }
         private void readData() {
             fbs. getFirestore().collection("cars")
                     .get()

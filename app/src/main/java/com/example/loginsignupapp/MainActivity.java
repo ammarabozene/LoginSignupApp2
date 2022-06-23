@@ -14,8 +14,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
-
 public class MainActivity<auth> extends AppCompatActivity {
 
      private  EditText etUsername, etPassword;
@@ -60,7 +58,7 @@ public class MainActivity<auth> extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // TODO: commands if successful
-                            Intent i = new Intent(MainActivity.this, AllCarsActivity.class);
+                            Intent i = new Intent(MainActivity.this, AllCarActivity.class);
                             startActivity(i);
                         } else {
 
@@ -84,7 +82,7 @@ public class MainActivity<auth> extends AppCompatActivity {
     }
 
     public void gotoAllCars(View view) {
-        Intent i = new Intent(this, AllCarsActivity.class);
+        Intent i = new Intent(this, AllCarActivity.class);
         startActivity(i);
     }
 }

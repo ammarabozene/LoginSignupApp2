@@ -12,7 +12,7 @@
             android:name=".CarDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".AllCarsActivity"
+            android:name=".AllCarActivity"
             android:exported="false" />
         <activity android:name=".AddNewCar" />
         <activity android:name=".SignupActivity" />
