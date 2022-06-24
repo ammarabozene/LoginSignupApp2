@@ -5,45 +5,39 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
-public class
-FirebaseServices {
+public class FirebaseServices {
+
     private static FirebaseServices instance;
     private FirebaseAuth auth;
-    private FirebaseFirestore firestore;
+    private FirebaseFirestore fire;
     private FirebaseStorage storage;
 
     public FirebaseAuth getAuth() {
         return auth;
     }
 
-    public FirebaseFirestore getFirestore() {
-        return firestore;
+    public FirebaseFirestore getFire() {
+        return fire;
     }
 
     public FirebaseStorage getStorage() {
         return storage;
     }
 
-    public FirebaseServices() {
+    public FirebaseServices()
+    {
         auth = FirebaseAuth.getInstance();
-        firestore = FirebaseFirestore.getInstance();
+        fire = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
     }
 
-    public static FirebaseServices getInstance() {
+    public static FirebaseServices getInstance()
+    {
         if (instance == null)
-        {
             instance = new FirebaseServices();
-        }
 
         return instance;
     }
-
-
-    public DocumentReference getFire() {
-        return null;
-    }
 }
-
 
     

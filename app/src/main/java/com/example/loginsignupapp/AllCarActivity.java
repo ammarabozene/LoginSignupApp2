@@ -6,13 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,42 +19,42 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
 public class AllCarActivity extends AppCompatActivity {
 
-        private RecyclerView rvAllCar;
-        AdapterCar adapter;
-        FirebaseServices fbs;
-        ArrayList<Car> cars;
-        MyCallback myCallback;
+    private RecyclerView rvAllRest;
+    AdapterCar adapter;
+    FirebaseServices fbs;
+    ArrayList<Car> cars;
+    MyCallback myCallback;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_all_car);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_all_car);
 
-            fbs = FirebaseServices.getInstance();
-           cars = new ArrayList<Car>();
-            readData();
-            myCallback = new MyCallback() {
-                @Override
-                public void onCallback(List<Car> restsList) {
-                    RecyclerView recyclerView = findViewById(R.id.rvAllCar);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    adapter = new AdapterCar(getApplicationContext(), cars);
-                    recyclerView.setAdapter(adapter);
-                }
+        fbs = FirebaseServices.getInstance();
+        cars = new ArrayList<Car>();
+        readData();
+        myCallback = new MyCallback() {
+            @Override
+            public void onCallback(List<Car> carsList) {
+                RecyclerView recyclerView = findViewById(R.id.rvCarsAllCar);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                adapter = new AdapterCar(getApplicationContext(), cars);
+                recyclerView.setAdapter(adapter);
+            }
+        };
 
-            };
-            ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
 
-            actionBar.setTitle("CARFORMATION");
-            actionBar.setDisplayUseLogoEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
-
-        }
+        actionBar.setTitle("  Carformation");
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,13 +84,13 @@ public class AllCarActivity extends AppCompatActivity {
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
-
         }
-
-
     }
-        private void readData() {
-            fbs. getFirestore().collection("cars")
+
+    private void readData() {
+        try {
+
+            fbs.getFire().collection("cars")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -100,12 +99,20 @@ public class AllCarActivity extends AppCompatActivity {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     cars.add(document.toObject(Car.class));
                                 }
+
                                 myCallback.onCallback(cars);
                             } else {
-                                Log.e("AllCarsActivity: readData()", "Error getting documents.", task.getException());
+                                Log.e("AllCarActivity: readData()", "Error getting documents.", task.getException());
                             }
                         }
                     });
+
+            // TODO: Added sorting
+           // Collections.sort(cars, new CarsComparator());
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(getApplicationContext(), "error reading!" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-
+}

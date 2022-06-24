@@ -24,19 +24,19 @@
     <EditText
         android:id="@+id/etPasswordSignup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/etusernameSignup"
-        app:layout_constraintTop_toBottomOf="@+id/etusernameSignup" />
+        app:layout_constraintStart_toStartOf="@+id/etUsernameSignup"
+        app:layout_constraintTop_toBottomOf="@+id/etUsernameSignup" />
 
     <EditText
         android:id="@+id/etconfirmPasswordSignup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"
@@ -46,9 +46,9 @@
         app:layout_constraintTop_toBottomOf="@+id/etPasswordSignup" />
 
     <EditText
-        android:id="@+id/etusernameSignup"
+        android:id="@+id/etUsernameSignup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:backgroundTint="@color/BORDO"
         android:ems="10"

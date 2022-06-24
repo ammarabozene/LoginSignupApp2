@@ -25,61 +25,61 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.UUID;
+
 
 public class AddNewCar extends AppCompatActivity {
-    private static final String TAG = "AddNewCarActivity";
+
+    private static final String TAG = "AddNewCar";
     private EditText etname, ethistory, etdescription;
-    private Spinner spAddNewCar;
-    private ImageView IvPhoto;
+    private Spinner spAddNewCar;;
+    private ImageView ivPhoto;
     private FirebaseServices fbs;
     private Uri filePath;
     private StorageReference storageReference;
     private String refAfterSuccessfullUpload = null;
-    Button btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_car);
 
+        getSupportActionBar().hide();
         connectComponents();
     }
-
 
     private void connectComponents() {
         etname = findViewById(R.id.etNameAddNewCar);
         ethistory = findViewById(R.id.etHistoryAddNewCar);
         etdescription = findViewById(R.id.etDescriptionAddNewCar);
-        IvPhoto = findViewById(R.id.ivPhotoAddNewCar);
         spAddNewCar = findViewById(R.id.spinnerAddNewCar);
+        ivPhoto = findViewById(R.id.ivPhotoAddNewCar);
         fbs = FirebaseServices.getInstance();
-        spAddNewCar.setAdapter(new ArrayAdapter<CarCategory>(this, android.R.layout.simple_selectable_list_item, CarCategory.values()));
-
-        btnAdd = findViewById(R.id.btnAddCar);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                add(v);
-            }
-        });
+        spAddNewCar.setAdapter(new ArrayAdapter<CarCategory>(this, android.R.layout.simple_list_item_1, CarCategory.values()));
+        storageReference = fbs.getStorage().getReference();
     }
 
     public void add(View view) {
         // check if any field is empty
-        String name,history,description, category, photo;
+        String name, history, description, category, photo;
         name = etname.getText().toString();
         history = ethistory.getText().toString();
         description = etdescription.getText().toString();
         category = spAddNewCar.getSelectedItem().toString();
-        if (IvPhoto.getDrawable() == null)
+        //if (ivPhoto.getDrawable() == null)
+        //  photo = "no_image";
+        if (refAfterSuccessfullUpload == null)
             photo = "no_image";
-        else photo = IvPhoto.getDrawable().toString();
+        else photo = refAfterSuccessfullUpload;
 
-        if (name.trim().isEmpty()||history.trim().isEmpty() || description.trim().isEmpty() || category.trim().isEmpty() || photo.trim().isEmpty()) {
-            Toast.makeText(this,"error : fileds are empty", Toast.LENGTH_SHORT).show();
+        if (name.trim().isEmpty() || history.trim().isEmpty() || description.trim().isEmpty() ||
+                category.trim().isEmpty() || photo.trim().isEmpty())
+        {
+            Toast.makeText(this, R.string.err_fields_empty, Toast.LENGTH_SHORT).show();
             return;
         }
-        Car car = new Car(Integer.parseInt(history), Integer.parseInt(description), Integer.parseInt(name),Integer.parseInt(photo), CarCategory.valueOf(category));
+
+        Car car = new Car(name, history, description, CarCategory.valueOf(category), photo);
         fbs.getFire().collection("cars")
                 .add(car)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -89,7 +89,6 @@ public class AddNewCar extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
-
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG, "Error adding document", e);
@@ -110,15 +109,14 @@ public class AddNewCar extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 if (data != null) {
                     filePath = data.getData();
-                    IvPhoto.setBackground(null);
-                    Picasso.get().load(filePath).into(IvPhoto);
+                    ivPhoto.setBackground(null);
+                    Picasso.get().load(filePath).into(ivPhoto);
                     uploadImage();
                 }
             } else if (resultCode == Activity.RESULT_CANCELED)  {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
     private void uploadImage()
@@ -132,88 +130,67 @@ public class AddNewCar extends AppCompatActivity {
             progressDialog.show();
 
             // Defining the child of storageReference
-          //  String fileNameStr = filePath.toString().substring(filePath.toString().lastIndexOf("/")+1);
+            StorageReference ref
+                    = storageReference
+                    .child(
+                            "images/"
+                                    + UUID.randomUUID().toString());
 
-            try {
-                final StorageReference ref
-                        = storageReference
-                        .child(
-                                "images/"
-                                        + filePath.getLastPathSegment());
-                                       //
-                // .3
-                // + UUID.randomUUID().toString());
-
-                ref.putFile(filePath)
-                        .addOnSuccessListener(
-                                new OnSuccessListener<UploadTask.TaskSnapshot>() {
-
-                                    @Override
-                                    public void onSuccess(
-                                            UploadTask.TaskSnapshot taskSnapshot)
-                                    {
-
-                                        // Image uploaded successfully
-                                        // Dismiss dialog
-                                        progressDialog.dismiss();
-                                        Toast
-                                                .makeText(AddNewCar.this,
-                                                        "Image Uploaded!!",
-                                                        Toast.LENGTH_SHORT)
-                                                .show();
-                                        refAfterSuccessfullUpload = ref.toString();
-                                    }
-                                })
-
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e)
-                            {
-
-                                // Error, Image not uploaded
-                                progressDialog.dismiss();
-                                Toast
-                                        .makeText(AddNewCar.this,
-                                                "Failed " + e.getMessage(),
-                                                Toast.LENGTH_SHORT)
-                                        .show();
-                            }
-                        })
-                        .addOnProgressListener(
-                                new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                    // Progress Listener for loading
-                                    // percentage on the dialog box
-                                    @Override
-                                    public void onProgress(
-                                            UploadTask.TaskSnapshot taskSnapshot)
-                                    {
-                                        double progress
-                                                = (100.0
-                                                * taskSnapshot.getBytesTransferred()
-                                                / taskSnapshot.getTotalByteCount());
-                                        progressDialog.setMessage(
-                                                "Uploaded "
-                                                        + (int)progress + "%");
-                                    }
-                                });
-            }
-            catch (Exception ex)
-            {
-                Log.e("uploadImage: reference", ex.getMessage());
-            }
-
-          //  filePath.toString().substring(filePath.toString().lastIndexOf("/")+1);
             // adding listeners on upload
             // or failure of image
+            ref.putFile(filePath)
+                    .addOnSuccessListener(
+                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
 
+                                @Override
+                                public void onSuccess(
+                                        UploadTask.TaskSnapshot taskSnapshot)
+                                {
 
+                                    // Image uploaded successfully
+                                    // Dismiss dialog
+                                    progressDialog.dismiss();
+                                    Toast
+                                            .makeText(AddNewCar.this,
+                                                    "Image Uploaded!!",
+                                                    Toast.LENGTH_SHORT)
+                                            .show();
+                                    refAfterSuccessfullUpload = ref.toString();
+                                }
+                            })
 
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e)
+                        {
+
+                            // Error, Image not uploaded
+                            progressDialog.dismiss();
+                            Toast
+                                    .makeText(AddNewCar.this,
+                                            "Failed " + e.getMessage(),
+                                            Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    })
+                    .addOnProgressListener(
+                            new OnProgressListener<UploadTask.TaskSnapshot>() {
+
+                                // Progress Listener for loading
+                                // percentage on the dialog box
+                                @Override
+                                public void onProgress(
+                                        UploadTask.TaskSnapshot taskSnapshot)
+                                {
+                                    double progress
+                                            = (100.0
+                                            * taskSnapshot.getBytesTransferred()
+                                            / taskSnapshot.getTotalByteCount());
+                                    progressDialog.setMessage(
+                                            "Uploaded "
+                                                    + (int)progress + "%");
+                                }
+                            });
         }
-    }
-
-    public void gotoAllCars(View view) {
-        Intent i = new Intent(this, AllCarActivity.class);
-        startActivity(i);
     }
 }

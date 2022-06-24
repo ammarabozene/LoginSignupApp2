@@ -12,7 +12,7 @@
     <EditText
         android:id="@+id/etNameAddNewCar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="47dp"
@@ -47,12 +47,13 @@
         app:layout_constraintBottom_toTopOf="@+id/ivPhotoAddNewCar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescriptionAddNewCar" />
+        app:layout_constraintTop_toBottomOf="@+id/etDescriptionAddNewCar"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/etDescriptionAddNewCar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="description"
@@ -71,12 +72,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerAddNewCar"
+        tools:ignore="SpeakableTextPresentCheck"
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
         android:id="@+id/etHistoryAddNewCar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="3dp"
         android:ems="10"
         android:hint="history"

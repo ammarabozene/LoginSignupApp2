@@ -3,67 +3,73 @@ package com.example.loginsignupapp;
 import java.io.Serializable;
 
 
-    public class Car implements Serializable {
-        private int history;
-        private int Description;
-        private int name;
-        private String photo;
+public class Car implements Serializable {
+    private String name;
+    private String history;
+    private String description;
+    private CarCategory category;
+    private String photo;
 
-        public Car(int parseInt1, int chasis, int i, int parseInt, CarCategory carCategory) {
-        }
-
-        public int getHistory() {
-            return history;
-        }
-
-        public void setHistory(int history) {
-            this.history = history;
-        }
-
-        public int getDescription() {
-            return Description;
-        }
-
-        public void setDescription(int description) {
-            Description = description;
-        }
-
-        public int getName() {
-            return name;
-        }
-
-        public void setName(int name) {
-            this.name = name;
-        }
-
-        public Car(int history , int Description, int name, int chasis, int color, int releaseyear, int engine, int size, String photo) {
-            this.history = history;
-            this.Description = Description;
-            this.name = name;
-
-            this.photo = photo;
-        }
-
-
-
-        public String getPhoto() {
-            return photo;
-        }
-
-        public void setPhoto(String photo) {
-            this.photo = photo;
-        }
-
-        @Override
-        public String toString() {
-            return "Car{" +
-                    "history=" + history +
-                    ", Description=" + Description +
-                    ", name=" + name +
-
-                    ", photo='" + photo + '\'' +
-                    '}';
-        }
-
+    public Car() {
     }
 
+    public Car(String name, String history, String description, CarCategory category, String photo) {
+        this.name = name;
+        this.history = history;
+        this.description = description;
+        this.category = category;
+        this.photo = photo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public CarCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(CarCategory category) {
+        this.category = category;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", history='" + history + '\'' +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", photo='" + photo + '\'' +
+                '}';
+    }
+}
