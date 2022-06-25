@@ -25,7 +25,7 @@ import java.util.List;
 
 public class AllCarActivity extends AppCompatActivity {
 
-    private RecyclerView rvAllRest;
+    private RecyclerView rvAllCar;
     AdapterCar adapter;
     FirebaseServices fbs;
     ArrayList<Car> cars;

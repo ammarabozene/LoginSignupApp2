@@ -7,6 +7,13 @@
     android:background="@color/Gray"
     android:backgroundTint="@color/Gray">
 
+    <ImageView
+        android:id="@+id/ivPhotoCarRow"
+        android:layout_width="76dp"
+        android:layout_height="157dp"
+        android:layout_weight="1"
+        tools:srcCompat="@android:drawable/ic_menu_gallery" />
+
     <TextView
         android:id="@+id/tvNameCarRow"
         android:layout_width="116dp"
@@ -14,12 +21,6 @@
         android:layout_weight="1"
         android:background="@color/BORDO"
         android:backgroundTint="@color/BORDO"
-        android:text="TextView" />
-
-    <ImageView
-        android:id="@+id/ivPhotoCarRow"
-        android:layout_width="wrap_content"
-        android:layout_height="157dp"
-        android:layout_weight="1"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="TextView"
+        android:textColor="@color/white" />
 </LinearLayout>

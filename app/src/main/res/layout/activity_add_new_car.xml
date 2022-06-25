@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="323dp"
         android:backgroundTint="@color/BORDO"
-        android:onClick="gotoAllCars"
+        android:onClick="add"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
